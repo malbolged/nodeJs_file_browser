@@ -1,0 +1,12 @@
+{
+  "all": true,
+  "cache": true,
+  "exclude": [
+    "src/tests/**/*.spec.ts"
+  ],
+  "reporter": [
+    "html",
+    "text",
+    "text-summary"
+  ]
+}

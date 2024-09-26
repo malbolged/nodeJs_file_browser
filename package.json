@@ -1,0 +1,75 @@
+{
+  "name": "skenderl.node.file_browser",
+  "version": "0.0.1",
+  "description": "File Browser",
+  "author": "skenderl",
+  "license": "MIT",
+  "keywords": [
+    "File",
+    "File Browser"
+  ],
+  "scripts": {
+    "test": "mocha",
+    "precoverage": "rimraf .nyc_output/ coverage/",
+    "coverage": "nyc npm run test",
+    "build": "rimraf ./dist && tsc --skipLibCheck",
+    "start": "node dist/server.js",
+    "start:dev": "nodemon",
+    "lint": "eslint . --ext .ts",
+    "lint:fix": "eslint . --ext .ts --fix",
+    "pre-commit": "lint-staged",
+    "prepare": "husky",
+    "prettier:check": "prettier --check ./src",
+    "prettier:fix": "prettier --write ./src"
+  },
+  "dependencies": {
+    "cors": "2.8.5",
+    "dotenv": "16.4.5",
+    "express": "4.21.0",
+    "response-time": "2.3.2"
+  },
+  "devDependencies": {
+    "@types/chai": "5.0.0",
+    "@types/cors": "2.8.17",
+    "@types/express": "5.0.0",
+    "@types/mocha": "10.0.8",
+    "@types/node": "22.7.1",
+    "@types/response-time": "2.3.8",
+    "@types/sinon": "17.0.3",
+    "@types/supertest": "6.0.2",
+    "@typescript-eslint/eslint-plugin": "8.7.0",
+    "@typescript-eslint/eslint-plugin-tslint": "7.0.2",
+    "@typescript-eslint/parser": "8.7.0",
+    "chai": "4.5.0",
+    "eslint": "8.57.1",
+    "eslint-config-prettier": "9.1.0",
+    "eslint-plugin-prettier": "5.2.1",
+    "husky": "9.1.6",
+    "lint-staged": "15.2.10",
+    "mocha": "10.7.3",
+    "nodemon": "3.1.7",
+    "nyc": "17.1.0",
+    "rimraf": "6.0.1",
+    "sinon": "19.0.2",
+    "supertest": "7.0.0",
+    "ts-node": "10.9.2",
+    "typescript": "5.6.2"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "src/**/*.ts": [
+      "eslint --ext .ts src/ --fix"
+    ],
+    "src/**/*.{ts,json}": [
+      "prettier --write"
+    ]
+  },
+  "engines": {
+    "npm": ">=10.8.2 <11.0.0",
+    "node": ">=20.17.0 <21.0.0"
+  }
+}
